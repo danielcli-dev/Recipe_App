@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    #recipe_project related apps
+    "users",
+    "recipes",
+    "ingredients"
 ]
 
 MIDDLEWARE = [
