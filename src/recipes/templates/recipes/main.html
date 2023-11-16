@@ -1,0 +1,18 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'recipes/css/main.css' %}" />
+
+<div class="recipes">
+  <h1 class="recipes_title">Recipe List</h1>
+  {% for object in object_list %}
+  <a href="{{object.get_absolute_url}}">
+    <div class="recipes_option">
+      <div class="recipes_optionImage">
+        <img src="{{object.pic.url}}" />
+      </div>
+      <div class="recipes_optionName">{{object.name}}</div>
+    </div></a
+  >
+
+  {% endfor %}
+</div>

@@ -1,11 +1,51 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'recipes/css/recipes_home.css' %}" />
+
 <!DOCTYPE html>
 <html>
-  <title>Recipes Home</title>
+  <title>Recipe App</title>
   <body>
-    <strong>Welcome to our Recipe App!</strong>
-    <div>
-      You will be able to create recipes, edit recipes, delete recipes, and
-      search for recipes by ingredient!
+    <div class="home">
+      <div class="header" width="50" color="green">
+        <a class="header_logo">
+          <img src="{% static 'recipes/images/icon.jpg' %}" alt="logo" />
+          RECIPEBYTES</a
+        >
+        <nav>
+          <a href="/recipes">
+            <div class="header_option" href="">Recipes</div>
+          </a>
+          <a href="/ingredients">
+            <div class="header_option" href="">Ingredients</div>
+          </a>
+          <a href="/users">
+            <div class="header_option" href="">Users</div>
+          </a>
+        </nav>
+      </div>
+      <div class="home_main">
+        <div class="home_mainLeft">
+          <img
+            class="home_image"
+            src="{% static 'recipes/images/recipes.jpg' %}"
+            alt="home"
+          />
+        </div>
+        <div class="home_mainRight">
+          <img
+            class="home_image2"
+            src="{% static 'recipes/images/recipes2.jpg' %}"
+            alt="home"
+          /><img
+            class="home_image3"
+            src="{% static 'recipes/images/recipes3.jpg' %}"
+            alt="home"
+          />
+        </div>
+      </div>
+
+      <button class="home_cta">MORE RECENT RECIPES</button>
     </div>
   </body>
 </html>

@@ -58,3 +58,7 @@ class MyTestClass(TestCase):
 
            # Compare the value to the expected result i.e. 120
            self.assertEqual(max_length, 12)
+
+    def test_get_absolute_url(self):
+       recipe = Recipe.objects.get(id=1)
+       self.assertEqual(recipe.get_absolute_url(), '/recipes/1')

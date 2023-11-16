@@ -17,9 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
-
+from django.conf import settings # from project level settings.py
+from django.conf.urls.static import static
 
 urlpatterns = [
    path('admin/', admin.site.urls),
-   path('', include('recipes.urls'))
+   path('', include('recipes.urls')),
+   path('', include('users.urls')),      
+   path('', include('ingredients.urls'))       
 ]
+
+# url patterns is similar to router endpoints
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+# appending to urlpatterns array with static elements of image urls and root
+

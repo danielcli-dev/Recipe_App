@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Leckerli+One&family=Montserrat:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Montserrat", sans-serif;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+a,
+a:hover,
+a:visited {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:visited {
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.ingredients {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-width: 1000px;
+  padding: 50px 0;
+  height: max-content;
+}
+.ingredients_title {
+  margin-bottom: 25px;
+}
+
+.ingredients_option {
+  display: flex;
+  width: 50%;
+  min-width: 500px;
+  border-radius: 25px;
+}
+
+.ingredients_option {
+  margin-bottom: 20px;
+}
+.ingredients_optionImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 10px;
+}
+.ingredients_optionImage > img {
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+}
+.ingredients_optionName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+  font-size: 25px;
+}

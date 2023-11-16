@@ -1,0 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'recipes/css/detail.css' %}" />
+<div class="detail">
+  <h2>Details for {{object.name}}</h2>
+
+  <img class="detail_portrait" src="{{object.pic.url}}" />
+  <div><b>Name: </b> {{object.name}}</div>
+
+  <div><b>Cooking Time: </b> {{object.cooking_time}} mins<br /></div>
+
+  <div><b>Difficulty: </b> {{object.calc_difficulty}} <br /></div>
+  <br />
+
+  <div>
+    <b>Ingredients: </b>
+  </div>
+
+  {% for ingredient in object.ingredients.all %}
+  <div class="detail_option">
+    <div class="detail_optionImage"><img src="{{ingredient.pic.url}}" /></div>
+    <div class="detail_optionName">
+      <b>{{ingredient}}</b>
+    </div>
+  </div>
+  {% endfor %}<br />
+</div>

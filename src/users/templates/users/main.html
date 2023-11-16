@@ -1,0 +1,18 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'users/css/main.css' %}" />
+
+<div class="users">
+  <h1 class="users_title">User List</h1>
+  {% for object in object_list %}
+  <a href="{{object.get_absolute_url}}">
+    <div class="users_option">
+      <div class="users_optionImage">
+        <img src="{{object.pic.url}}" />
+      </div>
+      <div class="users_optionName">{{object.name}}</div>
+    </div></a
+  >
+
+  {% endfor %}
+</div>
