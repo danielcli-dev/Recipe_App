@@ -3,11 +3,11 @@
 <html>
   <title>Recipe App</title>
 
-  <link rel="stylesheet" href="{% static 'users/css/detail.css' %}" />
+  <link rel="stylesheet" href="{% static 'ingredients/css/list.css' %}" />
 
-  <div class="detail">
+  <div class="ingredients">
     <div class="header" width="50" color="green">
-      <a  href='/' class="header_logo">
+      <a href="/" class="header_logo">
         <img src="{% static 'recipes/images/icon.jpg' %}" alt="logo" />
         RECIPEBYTES</a
       >
@@ -26,24 +26,15 @@
         </a>
       </nav>
     </div>
-    <h2>Details for {{object.name}}</h2>
-
-    <img class="detail_portrait" src="{{object.pic.url}}" />
-    <div><b>Name: </b> {{object.name}}</div>
-    <br />
-    <div>
-      <b>Recipes: </b>
+    <h1 class="ingredients_title">Ingredient List</h1>
+    {% for object in object_list %}
+    <div class="ingredients_option">
+      <div class="ingredients_optionImage">
+        <img src="{{object.pic.url}}" />
+      </div>
+      <div class="ingredients_optionName">{{object.name}}</div>
     </div>
 
-    {% for recipe in object.recipes.all %}
-    <a href="{{recipe.get_absolute_url}}">
-      <div class="detail_option">
-        <div class="detail_optionImage"><img src="{{recipe.pic.url}}" /></div>
-        <div class="detail_optionName">
-          <b>{{recipe}}</b>
-        </div>
-      </div>
-    </a>
-    {% endfor %}<br />
+    {% endfor %}
   </div>
 </html>

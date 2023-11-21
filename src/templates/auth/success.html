@@ -1,12 +1,12 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'recipes/css/recipes_home.css' %}" />
+<link rel="stylesheet" href="{% static 'src/css/success.css' %}" />
 
 <!DOCTYPE html>
 <html>
   <title>Recipe App</title>
   <body>
-    <div class="home">
+    <div class="success">
       <div class="header" width="50" color="green">
         <a href="/" class="header_logo">
           <img src="{% static 'recipes/images/icon.jpg' %}" alt="logo" />
@@ -27,28 +27,23 @@
           </a>
         </nav>
       </div>
-      <div class="home_main">
-        <div class="home_mainLeft">
-          <img
-            class="home_image"
-            src="{% static 'recipes/images/recipes.jpg' %}"
-            alt="home"
-          />
-        </div>
-        <div class="home_mainRight">
-          <img
-            class="home_image2"
-            src="{% static 'recipes/images/recipes2.jpg' %}"
-            alt="home"
-          /><img
-            class="home_image3"
-            src="{% static 'recipes/images/recipes3.jpg' %}"
-            alt="home"
-          />
-        </div>
+      <div class="message">
+        <strong>You’ve successfully logged out.</strong>
       </div>
 
-      <button class="home_cta">MORE RECENT RECIPES</button>
+      <div class="counter">
+        <div id="someId">0</div>
+        <button onclick="hello()">Counter</button>
+      </div>
     </div>
   </body>
 </html>
+
+<script>
+  let number = 0;
+  const hello = () => {
+    number += 1;
+    console.log("number is", number);
+    document.getElementById("someId").innerHTML = number;
+  };
+</script>

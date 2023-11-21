@@ -3,11 +3,11 @@
 <html>
   <title>Recipe App</title>
 
-  <link rel="stylesheet" href="{% static 'users/css/detail.css' %}" />
+  <link rel="stylesheet" href="{% static 'users/css/list.css' %}" />
 
-  <div class="detail">
+  <div class="users">
     <div class="header" width="50" color="green">
-      <a  href='/' class="header_logo">
+      <a href="/" class="header_logo">
         <img src="{% static 'recipes/images/icon.jpg' %}" alt="logo" />
         RECIPEBYTES</a
       >
@@ -26,24 +26,17 @@
         </a>
       </nav>
     </div>
-    <h2>Details for {{object.name}}</h2>
-
-    <img class="detail_portrait" src="{{object.pic.url}}" />
-    <div><b>Name: </b> {{object.name}}</div>
-    <br />
-    <div>
-      <b>Recipes: </b>
-    </div>
-
-    {% for recipe in object.recipes.all %}
-    <a href="{{recipe.get_absolute_url}}">
-      <div class="detail_option">
-        <div class="detail_optionImage"><img src="{{recipe.pic.url}}" /></div>
-        <div class="detail_optionName">
-          <b>{{recipe}}</b>
+    <h1 class="users_title">User List</h1>
+    {% for object in object_list %}
+    <a href="{{object.get_absolute_url}}">
+      <div class="users_option">
+        <div class="users_optionImage">
+          <img src="{{object.pic.url}}" />
         </div>
-      </div>
-    </a>
-    {% endfor %}<br />
+        <div class="users_optionName">{{object.name}}</div>
+      </div></a
+    >
+
+    {% endfor %}
   </div>
 </html>
