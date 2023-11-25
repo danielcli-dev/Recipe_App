@@ -13,13 +13,16 @@
           RECIPEBYTES</a
         >
         <nav>
-          <a href="/recipes">
+          <a href="{% url 'recipes:records' %}">
+            <div class="header_option" href="">Records</div>
+          </a>
+          <a href="{% url 'recipes:list' %}">
             <div class="header_option" href="">Recipes</div>
           </a>
-          <a href="/ingredients">
+          <a href="{% url 'ingredients:list' %}">
             <div class="header_option" href="">Ingredients</div>
           </a>
-          <a href="/users">
+          <a href="{% url 'users:list' %}">
             <div class="header_option" href="">Users</div>
           </a>
           <a href="{% url 'login' %}">

@@ -1,12 +1,12 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'recipes/css/recipes_home.css' %}" />
+<link rel="stylesheet" href="{% static 'recipes/css/records.css' %}" />
 
 <!DOCTYPE html>
 <html>
   <title>Recipe App</title>
   <body>
-    <div class="home">
+    <div class="records">
       <div class="header" width="50" color="green">
         <a href="/" class="header_logo">
           <img src="{% static 'recipes/images/icon.jpg' %}" alt="logo" />
@@ -25,33 +25,26 @@
           <a href="{% url 'users:list' %}">
             <div class="header_option" href="">Users</div>
           </a>
-          <a href="{% url 'login' %}">
-            <div class="header_option" href="">Login</div>
+          <a href="{% url 'logout' %}">
+            <div class="header_option" href="">Logout</div>
           </a>
         </nav>
       </div>
-      <div class="home_main">
-        <div class="home_mainLeft">
-          <img
-            class="home_image"
-            src="{% static 'recipes/images/recipes.jpg' %}"
-            alt="home"
-          />
-        </div>
-        <div class="home_mainRight">
-          <img
-            class="home_image2"
-            src="{% static 'recipes/images/recipes2.jpg' %}"
-            alt="home"
-          /><img
-            class="home_image3"
-            src="{% static 'recipes/images/recipes3.jpg' %}"
-            alt="home"
-          />
-        </div>
-      </div>
+      <h1>Search for recipes</h1>
+      <hr />
+      <form action="" method="POST">
+        {% csrf_token %} {{form}}
+        <button type="submit">Search</button>
+      </form>
 
-      <button class="home_cta">MORE RECENT RECIPES</button>
+      {% if recipe_df %} {{recipe_df|safe}}
+      <br />
+      <img src="data:image/png;base64, {{chart|safe}}" />
+
+      {% else %}
+      <h3>no data</h3>
+
+      {% endif %}
     </div>
   </body>
 </html>
