@@ -1,6 +1,6 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'recipes/css/records.css' %}" />
+<link rel="stylesheet" href="{% static 'recipes/css/add_recipe.css' %}" />
 
 <!DOCTYPE html>
 <html>
@@ -30,19 +30,12 @@
           </a>
         </nav>
       </div>
-      <h1>Search for recipes</h1>
+      <h1>Add recipes</h1>
       <hr />
-      <form action="" method="POST">
-        {% csrf_token %} {{form}}
-        <button type="submit">Search</button>
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} {{form.as_p}}
+        <button type="submit">Add</button>
       </form>
-
-      {% if recipe_df %} {{recipe_df|safe}}
-      <br />
-      <img src="data:image/png;base64, {{chart|safe}}" />
-      {% else %}
-      <h3>no data</h3>
-      {% endif %}
     </div>
   </body>
 </html>

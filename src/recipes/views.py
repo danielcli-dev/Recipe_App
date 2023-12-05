@@ -1,19 +1,22 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
 from .models import Recipe
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import RecipeSearchForm
+from .forms import RecipeSearchForm, RecipeAddForm
 import pandas as pd
 from IPython.display import HTML
 from .utils import get_chart, make_clickable_both, make_image
 from django.contrib.auth.decorators import login_required
-
-
+from django.urls import reverse_lazy
 
 # Create your views here.
 def home(request):
    return render(request, 'recipes/recipes_home.html')
 
+def about(request):
+   return render(request, 'recipes/about.html')
+
+# Function view now requires login to be accessible
 @login_required
 def records(request):
    form = RecipeSearchForm(request.POST or None)
@@ -33,8 +36,6 @@ def records(request):
       if recipe_name:
          qs =Recipe.objects.filter(name__icontains = recipe_name) 
          
-         #if using model from another app, use "app"_name
-
       if qs:
          recipe_df = pd.DataFrame(qs.values())
          ingredient_df = []
@@ -60,8 +61,6 @@ def records(request):
          recipe_df['name'] = temp_recipe_df['nameurl'].apply(make_clickable_both)
          recipe_df['pic'] = recipe_df['pic'].apply(make_image)
          
-
-      
       print ('Case 3: Output of qs.values')
       print (qs.values())
 
@@ -84,6 +83,19 @@ def records(request):
    }
    return render(request, 'recipes/records.html', context)
 
+@login_required
+def add_recipe(request):
+   form = RecipeAddForm(request.POST, request.FILES)
+
+   if request.method == 'POST':
+      recipe = form.save()
+
+   context = {
+      'form': form,
+   }
+
+   return render(request, 'recipes/add_recipe.html', context)
+
 class RecipeListView(LoginRequiredMixin, ListView):
    model = Recipe
    template_name = 'recipes/list.html'
@@ -91,4 +103,8 @@ class RecipeListView(LoginRequiredMixin, ListView):
 class RecipeDetailView(LoginRequiredMixin, DetailView):
    model = Recipe
    template_name = 'recipes/detail.html'
+
+class RecipeDeleteView(DeleteView):
+    model = Recipe
+    success_url = reverse_lazy("success")
 

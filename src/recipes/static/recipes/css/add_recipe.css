@@ -22,75 +22,100 @@ a:visited {
   text-decoration: none;
   cursor: pointer;
 }
+
 a:visited {
   color: black;
 }
+
 a:hover {
   text-decoration: none;
 }
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  overflow-y: scroll;
+  padding: 50px;
+}
+
+form > p {
+  margin-top: 10px;
+}
+
+form > p > input {
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 25px;
+  margin: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+form > p > select {
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 15px;
+  margin: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+form > button {
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 25px;
+  margin: 10px;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+form > select:hover,
+button:hover {
+  cursor: pointer;
 }
 
 nav {
   display: flex;
-  flex-direction: row;
   height: 100%;
 }
 
-.recipes {
+.dataframe {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+.dataframe {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.dataframe td,
+.dataframe th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.dataframe tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.dataframe tr:hover {
+  background-color: #ddd;
+}
+
+.dataframe th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+
+.records {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 1230px;
-  padding: 50px 0;
-  height: max-content;
-}
-
-.recipes_title {
-  margin-bottom: 25px;
-}
-
-.recipes_option {
-  display: flex;
-  width: 50%;
-  min-width: 500px;
-  border-radius: 25px;
-}
-
-.recipes_option:hover {
-  cursor: pointer;
-  background-color: lightgray;
-}
-
-.recipes_option {
-  margin-bottom: 20px;
-}
-
-.recipes_optionImage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  padding: 10px;
-}
-
-.recipes_optionImage > img {
-  width: 150px;
-  height: 150px;
-  border-radius: 75px;
-}
-
-.recipes_optionName {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 2;
-  font-size: 25px;
+  width: 65%;
 }
 
 .header {
@@ -127,12 +152,17 @@ nav {
   border-bottom: solid 3px lightgray;
 }
 
-.add {
+.errorlist > li {
+  display: none;
+  font-size: 5px;
+}
+
+button {
   border-radius: 10px;
   padding: 10px;
   background-color: lightgrey;
 }
 
-.add:hover {
+button:hover {
   opacity: 80%;
 }

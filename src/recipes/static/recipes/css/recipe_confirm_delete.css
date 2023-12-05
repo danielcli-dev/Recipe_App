@@ -13,6 +13,7 @@
   font-weight: 700;
   text-decoration: none;
 }
+
 a,
 a:hover,
 a:visited {
@@ -21,28 +22,63 @@ a:visited {
   text-decoration: none;
   cursor: pointer;
 }
+
 a:visited {
   color: black;
 }
+
 a:hover {
   text-decoration: none;
 }
-.detail_image {
+
+body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 500px;
-  height: 500px;
-  border-radius: 250px;
-  overflow: hidden;
+  padding: 50px;
 }
-.detail_imageING {
-  border-radius: 50%;
+
+form > input {
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  margin: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+form > select {
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  margin: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+form > button {
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 25px;
+  margin: 10px;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+form > select:hover,
+button:hover {
+  cursor: pointer;
 }
 
 nav {
   display: flex;
   height: 100%;
+}
+
+.records {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
 }
 
 .header {
@@ -78,3 +114,25 @@ nav {
   cursor: pointer;
   border-bottom: solid 3px lightgray;
 }
+
+.confirm {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.confirm:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.portrait {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 250px;
+  overflow: hidden;
+  margin: 10px;
+}
+

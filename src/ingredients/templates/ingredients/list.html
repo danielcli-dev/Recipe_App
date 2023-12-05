@@ -2,12 +2,11 @@
 <!DOCTYPE html>
 <html>
   <title>Recipe App</title>
-
   <link rel="stylesheet" href="{% static 'ingredients/css/list.css' %}" />
 
   <div class="ingredients">
-    <div class="header" width="50" color="green">
-      <a href="/" class="header_logo">
+    <div class="header">
+      <a href="{% url 'recipes:home' %}" class="header_logo">
         <img src="{% static 'recipes/images/icon.jpg' %}" alt="logo" />
         RECIPEBYTES</a
       >
@@ -30,6 +29,7 @@
       </nav>
     </div>
     <h1 class="ingredients_title">Ingredient List</h1>
+    <!-- For loop iterates through object_list variable from ListView -->
     {% for object in object_list %}
     <div class="ingredients_option">
       <div class="ingredients_optionImage">

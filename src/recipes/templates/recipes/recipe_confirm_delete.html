@@ -1,6 +1,6 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'recipes/css/records.css' %}" />
+<link rel="stylesheet" href="{% static 'recipes/css/recipe_confirm_delete.css' %}" />
 
 <!DOCTYPE html>
 <html>
@@ -30,19 +30,16 @@
           </a>
         </nav>
       </div>
-      <h1>Search for recipes</h1>
+      <h1>Delete recipes</h1>
       <hr />
-      <form action="" method="POST">
-        {% csrf_token %} {{form}}
-        <button type="submit">Search</button>
-      </form>
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <img class="portrait" src="{{object.pic.url}}" />
 
-      {% if recipe_df %} {{recipe_df|safe}}
-      <br />
-      <img src="data:image/png;base64, {{chart|safe}}" />
-      {% else %}
-      <h3>no data</h3>
-      {% endif %}
+        <p>Are you sure you want to delete "{{ object }}"?</p>
+        {{ form }}
+        <input class="confirm" type="submit" value="confirm">
+      </form>
     </div>
   </body>
 </html>

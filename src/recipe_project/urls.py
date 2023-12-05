@@ -21,8 +21,7 @@ from django.conf import settings # from project level settings.py
 from django.conf.urls.static import static
 from .views import login_view, logout_view, success_view
 
-
-
+# url patterns are similar to router endpoints
 urlpatterns = [
    path('admin/', admin.site.urls),
    path('', include('recipes.urls')),
@@ -34,9 +33,7 @@ urlpatterns = [
 
 ]
 
-# url patterns is similar to router endpoints
-
+# appending to urlpatterns array with static elements of image urls and root
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
-# appending to urlpatterns array with static elements of image urls and root
 

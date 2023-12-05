@@ -13,6 +13,7 @@
   font-weight: 700;
   text-decoration: none;
 }
+
 a,
 a:hover,
 a:visited {
@@ -21,68 +22,20 @@ a:visited {
   text-decoration: none;
   cursor: pointer;
 }
+
 a:visited {
   color: black;
 }
+
 a:hover {
   text-decoration: none;
 }
+
 body {
   display: flex;
   justify-content: center;
   overflow-y: scroll;
 }
-
-.detail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 80%;
-  max-width: 1230px;
-  padding: 50px 0;
-  height: max-content;
-}
-
-.detail_portrait {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 300px;
-  border-radius: 250px;
-  overflow: hidden;
-  margin: 10px;
-}
-.detail_option {
-  display: flex;
-  border-radius: 20px;
-  padding: 5px;
-  width: 300px;
-  margin: 10px;
-}
-
-.detail_optionImage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  padding: 10px;
-}
-
-.detail_optionImage > img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.detail_optionName {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 2;
-  font-size: 15px;
-}
-
 
 nav {
   display: flex;
@@ -121,4 +74,65 @@ nav {
 .header_option:hover {
   cursor: pointer;
   border-bottom: solid 3px lightgray;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-width: 1230px;
+  padding: 50px 0;
+  height: max-content;
+}
+
+.detail_portrait {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 250px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.detail_option {
+  display: flex;
+  border-radius: 20px;
+  padding: 5px;
+  width: 300px;
+  margin: 10px;
+}
+
+.detail_optionImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 10px;
+}
+
+.detail_optionImage > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.detail_optionName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+  font-size: 15px;
+}
+
+.delete {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: lightgrey;
+}
+
+.delete:hover {
+  opacity: 80%;
 }

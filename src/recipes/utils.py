@@ -2,6 +2,7 @@ from io import BytesIO
 import base64
 import matplotlib.pyplot as plt
 
+# Allows graph to be constructed
 def get_graph():
    buffer = BytesIO()         
 
@@ -19,6 +20,7 @@ def get_graph():
 
    return graph
 
+# Depending on user input for the RecipeSearchForm, plots data to graph
 def get_chart(chart_type, data, **kwargs):
    plt.switch_backend('AGG')
 
@@ -35,15 +37,20 @@ def get_chart(chart_type, data, **kwargs):
 
    elif chart_type == '#2':
        labels=kwargs.get('labels')
-       diffs = ['easy','medium','hard','intermediate']
+       diffs = []
        num_diffs = []
-       for diff in diffs:
-            num_diffs.append(data['difficulty'].value_counts().get(diff,0))
+       print(labels)
+       for diff in labels:
+            if data['difficulty'].value_counts().get(diff,0) != 0:
+                diffs.append(diff)
+                num_diffs.append(data['difficulty'].value_counts()[diff])
+            print(diffs)
             print(num_diffs)
 
-       percent_diffs = [ x / data.index.size for x in num_diffs] 
+       percent_diffs = [ x / data.index.size for x in num_diffs]               
+               
        plt.xlabel("% of Recipes by Difficulty")
-       plt.pie(percent_diffs, labels=labels)
+       plt.pie(percent_diffs, labels=diffs, autopct='%.0f%%')
 
    elif chart_type == '#3':
         times = data['cooking_time'].unique()

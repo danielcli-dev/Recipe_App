@@ -14,15 +14,6 @@
   text-decoration: none;
 }
 
-.header {
-  width: 100%;
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-content: space-between;
-}
-
 a,
 a:hover,
 a:visited {
@@ -31,9 +22,11 @@ a:visited {
   text-decoration: none;
   cursor: pointer;
 }
+
 a:visited {
   color: black;
 }
+
 a:hover {
   text-decoration: none;
 }
@@ -42,6 +35,11 @@ body {
   display: flex;
   justify-content: center;
   padding: 50px 0;
+}
+
+nav {
+  display: flex;
+  height: 100%;
 }
 
 .home {
@@ -89,14 +87,16 @@ body {
   background-color: transparent;
   font-size: large;
   font-weight: 700;
-}
-.home_cta {
   cursor: pointer;
 }
 
-nav {
+.header {
+  width: 100%;
+  height: 70px;
   display: flex;
-  height: 100%;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header_logo {

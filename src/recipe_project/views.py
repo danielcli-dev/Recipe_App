@@ -7,13 +7,10 @@ from django.contrib.auth import authenticate, login, logout
 
 
 #define a function view called login_view that takes a request from user
-def login_view(request):
-   #initialize:
-   #error_message to None                                 
+def login_view(request):                                
    error_message = None   
    #form object with username and password fields                             
    form = AuthenticationForm()                            
-
 
    #when user hits "login" button, then POST request is generated
    if request.method == 'POST':       
@@ -22,22 +19,24 @@ def login_view(request):
 
        #check if form is valid
        if form.is_valid():                                
-           username=form.cleaned_data.get('username')      #read username
-           password=form.cleaned_data.get('password')    #read password
+           username=form.cleaned_data.get('username')    # username variable set to username from form
+           password=form.cleaned_data.get('password')    # password variable set to password from form
 
            #use Django authenticate function to validate the user
            user=authenticate(username=username, password=password)
-           if user is not None:                    #if user is authenticated
-          #then use pre-defined Django function to login
+           if user is not None:                    
+            #if user is authenticated
+            #then use pre-defined Django function to login and redirect to home page
                login(request, user)                
-               return redirect('recipes:list') #& send the user to desired page
+               return redirect('recipes:list')
        else:                                               #in case of error
-           error_message ='ooops.. something went wrong'   #print error message
+        #    if an error occurs, an error message is generated and sent to template
+           error_message ='ooops.. something went wrong'
 
    #prepare data to send from view to template
    context ={                                             
-       'form': form,                                 #send the form data
-       'error_message': error_message                     #and the error_message
+       'form': form,                                 # send the form data
+       'error_message': error_message                # and the error_message
    }
    #load the login page using "context" information
    return render(request, 'auth/login.html', context)     
@@ -47,5 +46,6 @@ def logout_view(request):
     logout(request)               #the use pre-defined Django function to logout
     return redirect('success')    #after logging out go to login form (or whichever page you want)
 
+# Simple page displayed when successfully logged out
 def success_view(request):
     return render(request, 'auth/success.html') 

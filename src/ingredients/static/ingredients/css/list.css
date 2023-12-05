@@ -22,9 +22,11 @@ a:visited {
   text-decoration: none;
   cursor: pointer;
 }
+
 a:visited {
   color: black;
 }
+
 a:hover {
   text-decoration: none;
 }
@@ -33,6 +35,11 @@ body {
   display: flex;
   justify-content: center;
   overflow-y: scroll;
+}
+
+nav {
+  display: flex;
+  height: 100%;
 }
 
 .ingredients {
@@ -44,6 +51,7 @@ body {
   padding: 50px 0;
   height: max-content;
 }
+
 .ingredients_title {
   margin-bottom: 25px;
 }
@@ -53,11 +61,10 @@ body {
   width: 50%;
   min-width: 500px;
   border-radius: 25px;
+margin-bottom: 20px;
+
 }
 
-.ingredients_option {
-  margin-bottom: 20px;
-}
 .ingredients_optionImage {
   display: flex;
   justify-content: center;
@@ -65,23 +72,19 @@ body {
   flex: 1;
   padding: 10px;
 }
+
 .ingredients_optionImage > img {
   width: 150px;
   height: 150px;
   border-radius: 75px;
 }
+
 .ingredients_optionName {
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 2;
   font-size: 25px;
-}
-
-
-nav {
-  display: flex;
-  height: 100%;
 }
 
 .header {

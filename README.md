@@ -9,3 +9,5 @@ The web app is for creating and storing data for cooking recipes. Recipes contai
 ## Project Dependencies
 
 ## Which API the Project Uses
+
+where users can get help with the project, and who maintains and contributes to the project).

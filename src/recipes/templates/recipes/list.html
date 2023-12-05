@@ -6,7 +6,7 @@
 
   <div class="recipes">
     <div class="header">
-      <a href="/" class="header_logo">
+      <a href="{% url 'recipes:home' %}" class="header_logo">
         <img src="{% static 'recipes/images/icon.jpg' %}" alt="logo" />
         RECIPEBYTES</a
       >
@@ -29,6 +29,9 @@
       </nav>
     </div>
     <h1 class="recipes_title">Recipe List</h1>
+    <a href="{% url 'recipes:add_recipe' %}">
+      <div class="add">Add Recipe</div>
+    </a>
     {% for object in object_list %}
     <a href="{{object.get_absolute_url}}">
       <div class="recipes_option">
@@ -38,7 +41,6 @@
         <div class="recipes_optionName">{{object.name}}</div>
       </div></a
     >
-
     {% endfor %}
   </div>
 </html>
